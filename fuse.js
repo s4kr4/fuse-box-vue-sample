@@ -1,6 +1,6 @@
 const {
   FuseBox,
-  BabelPlugin,
+  HTMLPlugin,
   VueComponentPlugin,
   WebIndexPlugin,
   Sparky
@@ -12,6 +12,9 @@ const fuse = FuseBox.init({
   useTypescriptCompiler: true,
   plugins: [
     VueComponentPlugin({}),
+    HTMLPlugin({
+      useDefault: false,
+    }),
     WebIndexPlugin({
       template: './src/index.html'
     }),
@@ -23,8 +26,7 @@ fuse.dev({
 });
 
 fuse.bundle('app.js')
-  .instructions('> index.js + components/**')
-  .watch()
-  .hmr();
+  .instructions('> index.ts + components/**')
+  .watch();
 
 fuse.run();

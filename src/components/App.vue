@@ -9,6 +9,9 @@
 import Test from './Test.vue'
 
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    Test,
+  }
 }
 </script>
