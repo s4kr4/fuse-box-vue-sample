@@ -9,12 +9,9 @@ const {
 const fuse = FuseBox.init({
   homeDir: './src',
   output: 'dist/$name.js',
+  useTypescriptCompiler: true,
   plugins: [
-    VueComponentPlugin({
-      script: BabelPlugin({
-        presets: ['es2015'],
-      }),
-    }),
+    VueComponentPlugin({}),
     WebIndexPlugin({
       template: './src/index.html'
     }),
